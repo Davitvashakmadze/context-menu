@@ -16,13 +16,13 @@ const ContextMenu = (props) => {
           <li key={"edit"} onClick={props.data.edit}>
             Edit
           </li>
-          <li key={"delete"} onClick={props.data.del}>
+          <li key={"delete"} onClick={props.data.delete}>
             Delete
           </li>
-          <li key={"update"} onClick={props.data.del}>
+          <li key={"update"} onClick={props.data.update}>
             Update
           </li>
-          <li key={"create"} onClick={props.data.del}>
+          <li key={"create"} onClick={props.data.create}>
             Create here {text} File
           </li>
         </ul>

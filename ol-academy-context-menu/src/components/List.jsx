@@ -13,15 +13,23 @@ function List(props) {
   };
 
   const editMenu = () => {
-    setShowMenu(false);
+    console.log("Edit")
   };
 
   const deleteMenu = () => {
-    setShowMenu(false);
+    console.log("Delete")
   };
+  const update = () => {
+    console.log("Update")
+  }
+  const create = () => {
+    console.log("Create")
+  }
+
 
   const hideContext = () => {
     setShowMenu(false);
+    
   };
 
   return (
@@ -45,6 +53,8 @@ function List(props) {
             data={{
               delete: deleteMenu,
               edit: editMenu,
+              update: update,
+              create: create,
               x: position.x,
               y: position.y,
               text: position.text,

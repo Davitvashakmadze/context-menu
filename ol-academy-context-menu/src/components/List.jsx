@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import ContextMenu from "./ContextMenu";
 
-function List(props) {
+function List({ menu }) {
   const [showMenu, setShowMenu] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0, text: "" });
-  const menu = props.data;
+  const [position, setPosition] = useState({ x: 10, y: 30, text: "" });
 
   const context = (e, text) => {
     e.preventDefault();
@@ -34,16 +33,16 @@ function List(props) {
 
   return (
     <>
-      <div className="list-items" onClick={hideContext} style={{}}>
+      <div className="list-items" onClick={hideContext}>
         <h2 className="title">Context Menu</h2>
         <ul>
-          {menu.map((item) => {
+          {menu.map(({id, name}) => {
             return (
               <li
-                key={item.id}
-                onContextMenu={(event) => context(event, item.name)}
+                key={id}
+                onContextMenu={(event) => context(event, name)}
               >
-                {item.name}
+                {name}
               </li>
             );
           })}
@@ -51,7 +50,7 @@ function List(props) {
         {showMenu && (
           <ContextMenu
             data={{
-              delete: deleteMenu,
+              deletee: deleteMenu,
               edit: editMenu,
               update: update,
               create: create,

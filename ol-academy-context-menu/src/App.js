@@ -6,7 +6,7 @@ function App() {
 
     return (
         <div className="App">
-            <List data={menu} />
+            <List menu={menu} />
         </div>
     );
 }

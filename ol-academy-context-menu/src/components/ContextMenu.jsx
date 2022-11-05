@@ -1,10 +1,8 @@
 import React from "react";
 
-const ContextMenu = (props) => {
-  const x = props.data.x;
-  const y = props.data.y;
-  const text = props.data.text;
-
+const ContextMenu = ({
+  data: { x, y, text, edit, deletee, update, create },
+}) => {
   return (
     <>
       <div
@@ -13,16 +11,16 @@ const ContextMenu = (props) => {
       >
         <ul>
           <li key={text}>{text}</li>
-          <li key={"edit"} onClick={props.data.edit}>
+          <li key={"edit"} onClick={edit}>
             Edit
           </li>
-          <li key={"delete"} onClick={props.data.delete}>
+          <li key={"delete"} onClick={deletee}>
             Delete
           </li>
-          <li key={"update"} onClick={props.data.update}>
+          <li key={"update"} onClick={update}>
             Update
           </li>
-          <li key={"create"} onClick={props.data.create}>
+          <li key={"create"} onClick={create}>
             Create here {text} File
           </li>
         </ul>

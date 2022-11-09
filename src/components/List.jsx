@@ -12,23 +12,21 @@ function List({ menu }) {
   };
 
   const editMenu = () => {
-    console.log("Edit")
+    console.log("Edit");
   };
 
   const deleteMenu = () => {
-    console.log("Delete")
+    console.log("Delete");
   };
   const update = () => {
-    console.log("Update")
-  }
+    console.log("Update");
+  };
   const create = () => {
-    console.log("Create")
-  }
-
+    console.log("Create");
+  };
 
   const hideContext = () => {
     setShowMenu(false);
-    
   };
 
   return (
@@ -36,12 +34,9 @@ function List({ menu }) {
       <div className="list-items" onClick={hideContext}>
         <h2 className="title">Context Menu</h2>
         <ul>
-          {menu.map(({id, name}) => {
+          {menu.map(({ id, name }) => {
             return (
-              <li
-                key={id}
-                onContextMenu={(event) => context(event, name)}
-              >
+              <li key={id} onContextMenu={(event) => context(event, name)}>
                 {name}
               </li>
             );
@@ -49,15 +44,13 @@ function List({ menu }) {
         </ul>
         {showMenu && (
           <ContextMenu
-            data={{
-              deletee: deleteMenu,
-              edit: editMenu,
-              update: update,
-              create: create,
-              x: position.x,
-              y: position.y,
-              text: position.text,
-            }}
+            actions={[
+              { action: deleteMenu, label: "Delete" },
+              { action: editMenu, label: "Edit" },
+              { action: update, label: "Update" },
+              { action: create, label: `Create here ${position.text}` },
+            ]}
+            position={position}
           />
         )}
       </div>

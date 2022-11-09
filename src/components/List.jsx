@@ -34,13 +34,13 @@ function List({ menu }) {
       <div className="list-items" onClick={hideContext}>
         <h2 className="title">Context Menu</h2>
         <ul>
-          {menu.map(({ id, name }) => {
-            return (
+          {menu.map(({ id, name }) => (
+            
               <li key={id} onContextMenu={(event) => context(event, name)}>
                 {name}
               </li>
-            );
-          })}
+          
+          ))}
         </ul>
         {showMenu && (
           <ContextMenu
